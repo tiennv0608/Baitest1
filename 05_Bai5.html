@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="show" width="50%" border="1">
+
+</table>
+<script>
+    let customerList = [
+        ["A01","Nguyễn Văn A","08/06/1990","Nam","Xã A, Huyện B, Thành phố C"],
+        ["A02","Trần Thị B","07/20/1994","Nữ","Xã D, Huyện B, Thành phố C"],
+        ["A03","Nguyễn Bùi C","09/06/1993","Nam","Xã E, Huyện F, Thành phố G"]
+    ];
+    let str ="";
+    showList();
+    function showList() {
+        str ="<tr>\n" +
+            "        <th>Mã Khách hàng</th>\n" +
+            "        <th>Tên Khách hàng</th>\n" +
+            "        <th>Ngày sinh</th>\n" +
+            "        <th>Giới tính</th>\n" +
+            "        <th>Địa chỉ</th>\n" +
+            "        <th></th>\n" +
+            "    </tr>"
+        for (let i=0;i<customerList.length;i++) {
+            str+="<tr>";
+            for (let j=0;j<customerList[i].length;j++){
+                str+="<td onclick='editInformation(this)'>"+customerList[i][j]+"</td>"
+            }
+            str+="<td><input type='button' value='Delete' onclick='deleteCustomer(this)'></td>"+"</tr>";
+        }
+        document.getElementById('show').innerHTML = str;
+    }
+    function deleteCustomer(index) {
+        customerList.splice(index,1);
+        str = ""
+        showList()
+    }
+    function editInformation(value){
+        value.innerHTML = prompt("Nhap thong tin moi:")
+    }
+    function addCustomer() {
+        customerList.push()
+    }
+</script>
+</body>
+</html>
