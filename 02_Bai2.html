@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPerfectNumber(number) {
+        if (number < 0) {
+            return false;
+        }
+        let sum = 0;
+        for (i=1;i<number;i++) {
+            if (number%i ==0) {
+                sum+=i;
+            }
+        }
+        if (sum == number) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    let num = +prompt("Nhap 1 so bat ky:");
+    document.write(isPerfectNumber(num));
+
+
+</script>
+</body>
+</html>
