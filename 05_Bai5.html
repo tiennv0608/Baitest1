@@ -8,6 +8,10 @@
 <table id="show" width="50%" border="1">
 
 </table>
+<i>Click vào để sửa thông tin!</i><br>
+<i>Click Delete để xóa khách hàng!</i><br>
+<i>Click Add để thêm khách hàng!</i>
+<input type="button" value="Add" onclick="addCustomer()">
 <script>
     let customerList = [
         ["A01","Nguyễn Văn A","08/06/1990","Nam","Xã A, Huyện B, Thành phố C"],
@@ -40,11 +44,24 @@
         showList()
     }
     function editInformation(value){
-        value.innerHTML = prompt("Nhap thong tin moi:")
+        let name = value.innerHTML;
+        value.innerHTML = prompt("Nhap thong tin moi:");
+        if (value.innerHTML == ""){
+            value.innerHTML = name;
+        }
     }
-    function addCustomer() {
-        customerList.push()
+    function addCustomer(){
+        let id = prompt("Mã khách hàng: ")
+        let name = prompt("Họ và tên khách hàng: ")
+        let bithday = prompt("Ngày tháng năm sinh: ")
+        let gender = prompt("Giới tính : ")
+        let address = prompt("Địa chỉ: ")
+        let newCustomer = new Array(id,name,bithday,gender,address)
+        customerList.push(newCustomer)
+        str=""
+        showList();
     }
+
 </script>
 </body>
 </html>
