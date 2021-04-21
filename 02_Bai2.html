@@ -7,7 +7,7 @@
 <body>
 <script>
     function isPerfectNumber(number) {
-        if (number < 0) {
+        if (number <= 0) {
             return false;
         }
         let sum = 0;
@@ -24,7 +24,12 @@
     }
 
     let num = +prompt("Nhap 1 so bat ky:");
-    document.write(isPerfectNumber(num));
+    let result = isPerfectNumber(num);
+    if (result == true) {
+        alert(num+" la so hoan hao")
+    } else {
+        alert(num+ " khong la so hoan hao")
+    }
 
 
 </script>
