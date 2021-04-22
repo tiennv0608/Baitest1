@@ -7,7 +7,7 @@
 <body>
 <script>
     function isPerfectNumber(number) {
-        if (number < 0) {
+        if (number <= 0) {
             return false;
         }
         let sum = 0;
@@ -24,28 +24,29 @@
     }
     function findPositionPerfectNumber (arr) {
         let arrIndex = [];
-        let result = "";
         for (let i = 0; i < arr.length; i++) {
             if (isPerfectNumber(arr[i]) == true) {
                 arrIndex.push(i);
             }
         }
-        if (arrIndex.length == 0) {
-            result = "Khong co so hoan hao trong mang";
-        } else {
-            for (j=0;j<arrIndex.length;j++) {
-                result = "cac vi tri cua so hoan hao trong mang la " +arrIndex;
-            }
-        }
-        return result
+        return arrIndex;
     }
 
     let arr1 = [];
+    let result;
     let N = +prompt("Nhap chieu dai cua mang");
     for (i=0;i<N;i++) {
         arr1[i] = +prompt("Nhap so");
     }
-    document.write(findPositionPerfectNumber(arr1));
+    let arrIndex = findPositionPerfectNumber(arr1)
+    if (arrIndex.length == 0) {
+        result = "Khong co so hoan hao trong mang";
+    } else {
+        for (j=0;j<arrIndex.length;j++) {
+            result = "cac vi tri cua so hoan hao trong mang la " +arrIndex;
+        }
+    }
+    document.write(result);
 
 </script>
 </body>
